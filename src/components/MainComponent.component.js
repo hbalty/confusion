@@ -3,6 +3,7 @@ import Menu from './MenuComponent.component';
 import Home from './HomeComponent';
 import Header from './HeaderComponent'
 import Contact from './ContactComponent';
+import About from './AboutusComponent';
 import { DISHES } from '../shared/dishes';
 import Footer from './FooterComponent';
 import { Switch, Route, Redirect } from 'react-router-dom';
@@ -27,7 +28,7 @@ class MainComponent extends Component{
   }
 
   
-
+  
   
   render() {
 
@@ -46,12 +47,15 @@ class MainComponent extends Component{
       );
     };
 
+
+
     return ( 
       <div>
         <Header/>
           <Switch> 
               <Route path="/home" component={HomePage} />
               <Route exact path="/menu" component={ () => <Menu dishes={this.state.dishes }/>}/>
+              <Route exact path="/aboutus" component={ () => <About leaders={this.state.leaders }/>}/>
               <Route path='/menu/:dishId' component={DishWithId} />
               <Route exact path="/contactus" component={Contact}/>
               <Redirect to="/home"/>
