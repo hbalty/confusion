@@ -25,7 +25,8 @@ function RenderLeader({leader}){
 
 
 function About(props) {
-
+    let obj = { name:'json', age: 25}
+    console.log(JSON.stringify(obj))
     const leaders = props.leaders.map((leader) => {
         return (
             <RenderLeader leader={leader}/>
