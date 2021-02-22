@@ -7,6 +7,7 @@ import { LocalForm, Errors, Control } from 'react-redux-form'
 import { Loading } from './LoadingComponent';
 
 
+
     
     const required = (val) => val && val.length;
     const maxLength = (len) => (val) => !(val) || (val.length <= len);
