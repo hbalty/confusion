@@ -5,7 +5,7 @@ import { Card, CardImg, CardTitle, CardText, CardBody, BreadcrumbItem, Breadcrum
 import { List } from 'reactstrap'; 
 import { LocalForm, Errors, Control } from 'react-redux-form'
 import { Loading } from './LoadingComponent';
-
+import { baseUrl } from '../shared/baseUrl'
 
 
     
@@ -136,7 +136,7 @@ import { Loading } from './LoadingComponent';
         if (dish != null)
         return(
             <Card>
-            <CardImg top src={dish.image} alt={dish.name} />
+            <CardImg top src={baseUrl + dish.image} alt={dish.name} />
             <CardBody>
                 <CardTitle>{dish.name}</CardTitle>
                 <CardText>{dish.description}</CardText>
