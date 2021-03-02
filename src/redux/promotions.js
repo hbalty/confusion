@@ -1,5 +1,4 @@
 import  *  as ActionTypes  from './ActionTypes'
-
 export const Promotions = (state = {
     isLoading : true,
     errMess: null, 

@@ -157,29 +157,28 @@ import { FadeTransform, Fade, Stagger } from 'react-animation-components';
     }
 
     function RenderComments( {comments , postComment, dishId}){
-        if (comments != null){
-            
-            const commentsCard = comments.map((comment) => {
-                return (
-                    <Fade in>
-                        <List type="unstyled" key={comment.id}> 
-                            <li> { comment.comment }</li>
-                            <li> --- { comment.author } - { Intl.DateTimeFormat('fr-FR', { year: 'numeric', month: 'short', day:'2-digit'}).format(new Date(Date.parse(comment.date))) }</li>
-                            
-                        </List>
-                    </Fade>
-                )
-            }); 
-
-            return <> 
+        if (comments != null){     
+            return (
+                <div className="col-12 col-md-5 m-1">
+                    <h4> Comments </h4>
+                    <ul className="list-unstyled">
                     <Stagger in>
-                        {commentsCard}
-                    </Stagger>
-                    <CommentForm 
-                        dishId={dishId}
-                        postComment={postComment}
-                    />  
-                </>
+                        { comments.map((comment) => {
+                            return (
+                                <Fade in>
+                                    <li key={comment.id}>
+                                        <p> { comment.comment } </p>
+                                        <p> --- { comment.author } - { Intl.DateTimeFormat('fr-FR', { year: 'numeric', month: 'short', day:'2-digit'}).format(new Date(Date.parse(comment.date))) }</p>
+                                    </li> 
+                                 </Fade>
+                                 )
+                               
+                        })}
+                         </Stagger>
+                    </ul>
+                    <CommentForm dishId={dishId} postComment={postComment}></CommentForm>
+                </div>
+            )
         } else 
         return <div> </div>
         
@@ -223,12 +222,10 @@ import { FadeTransform, Fade, Stagger } from 'react-animation-components';
                     <div className="col-12 col-md-5 m-1">
                         <RenderDish dish={props.dish} />
                     </div>
-                    <div className="col-12 col-md-5 m-1">
-                        <RenderComments comments={props.comments}
-                            postComment={props.postComment}
-                            dishId={props.dish.id}
+                    <RenderComments comments={props.comments}
+                                postComment={props.postComment}
+                                dishId={props.dish.id}
                         />
-                    </div>
                 </div>
                 </div>
             );
